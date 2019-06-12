@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Contracts\View\View;
 use PHPUnit\Framework\Assert as PHPUnit;
+use Illuminate\Foundation\Testing\Assert;
 use PHPUnit\Framework\ExpectationFailedException;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
@@ -425,7 +426,7 @@ trait MakesHttpRequests
      */
     protected function seeJsonSubset(array $data)
     {
-        $this->assertArraySubset($data, $this->decodeResponseJson());
+        Assert::assertArraySubset($data, $this->decodeResponseJson());
 
         return $this;
     }
